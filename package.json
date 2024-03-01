@@ -29,6 +29,7 @@
   "dependencies": {
     "@clerk/localizations": "^1.26.14",
     "@clerk/nextjs": "^4.29.6",
+    "@headlessui/react": "^1.7.18",
     "@hookform/resolvers": "^3.3.4",
     "@libsql/client": "^0.4.3",
     "@logtail/pino": "^0.4.19",

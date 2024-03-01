@@ -1,13 +1,13 @@
-import { withSentryConfig } from '@sentry/nextjs';
+import { withSentryConfig } from "@sentry/nextjs";
 /* eslint-disable import/no-extraneous-dependencies, import/extensions */
-import './src/libs/Env.mjs';
-import withBundleAnalyzer from '@next/bundle-analyzer';
-import withNextIntl from 'next-intl/plugin';
+import "./src/libs/Env.mjs";
+import withBundleAnalyzer from "@next/bundle-analyzer";
+import withNextIntl from "next-intl/plugin";
 
-const withNextIntlConfig = withNextIntl('./src/libs/i18n.ts');
+const withNextIntlConfig = withNextIntl("./src/libs/i18n.ts");
 
 const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === "true",
 });
 
 /** @type {import('next').NextConfig} */
@@ -15,21 +15,21 @@ export default withSentryConfig(
   bundleAnalyzer(
     withNextIntlConfig({
       eslint: {
-        dirs: ['.'],
+        dirs: ["."],
       },
       poweredByHeader: false,
       reactStrictMode: true,
       experimental: {
         // Related to Pino error with RSC: https://github.com/orgs/vercel/discussions/3150
-        serverComponentsExternalPackages: ['pino'],
+        serverComponentsExternalPackages: ["pino"],
       },
       webpack: (config) => {
         // config.externals is needed to resolve the following errors:
         // Module not found: Can't resolve 'bufferutil'
         // Module not found: Can't resolve 'utf-8-validate'
         config.externals.push({
-          bufferutil: 'bufferutil',
-          'utf-8-validate': 'utf-8-validate',
+          bufferutil: "bufferutil",
+          "utf-8-validate": "utf-8-validate",
         });
 
         return config;
@@ -43,8 +43,8 @@ export default withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
     // FIXME: Add your Sentry organization and project names
-    org: 'nextjs-boilerplate-org',
-    project: 'nextjs-boilerplate',
+    org: "cynsarcapital",
+    project: "kind-health",
   },
   {
     // For all available options, see:
@@ -57,7 +57,7 @@ export default withSentryConfig(
     transpileClientSDK: true,
 
     // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
-    tunnelRoute: '/monitoring',
+    tunnelRoute: "/monitoring",
 
     // Hides source maps from generated client bundles
     hideSourceMaps: true,
