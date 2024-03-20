@@ -45,13 +45,13 @@ export default function Index() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Build trust with your patients with Kindness
+              Foster patient confidence through compassion.
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              We are building a unique reason based large language model that
-              remove the guess work between you and your patients. Enage like
-              never before. Capture information from anything to Electronic
-              health records
+              We are developing a distinctive, reason-based large language model
+              designed to eliminate uncertainties in your interactions with
+              patients. Engage in unparalleled ways and seamlessly integrate
+              information from diverse sources into electronic health records.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Form />
