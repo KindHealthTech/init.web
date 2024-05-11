@@ -2,6 +2,7 @@ import '@/styles/global.css';
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 import { AppConfig } from '@/utils/AppConfig';
@@ -43,6 +44,11 @@ export default function RootLayout(props: {
 
   return (
     <html lang={props.params.locale}>
+      <Script
+        defer
+        data-domain="kindhealth.tech"
+        src="https://analytics.cynsar.capital/js/script.js"
+      />
       <body>
         <NextIntlClientProvider
           locale={props.params.locale}

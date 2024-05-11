@@ -2,4 +2,4 @@
 
 Here we go.
 
-https://health.kindgestures.eu
+https://kindhealth.tech
