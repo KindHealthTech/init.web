@@ -16,6 +16,42 @@ export default {
       '6xl': '4rem',
     },
     extend: {
+      keyframes: {
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
+        'gradient-x': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        }
+      },
+      animation: {
+        'float-slow': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out infinite 3s',
+        'fade-out': 'fade-out 0.5s ease-out forwards',
+        'fade-in': 'fade-in 0.5s ease-in forwards',
+        'slide-up': 'slide-up 0.3s ease-out forwards',
+        'gradient-x': 'gradient-x 15s ease infinite',
+      },
       colors: {
         gray: {
           100: '#f7fafc',
@@ -42,5 +78,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string | Record<string, string>>>) => void }) => {
+      addUtilities({
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }
+      })
+    }
+  ],
 } satisfies Config;
