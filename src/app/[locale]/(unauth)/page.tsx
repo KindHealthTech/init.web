@@ -15,16 +15,19 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
+import HeaderWrapper from '@/components/HeaderWrapper';
+
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow relative">
+      <HeaderWrapper />
+      <main className="flex-grow relative pt-16 md:pt-20">
         <section className="min-h-screen flex items-center justify-center bg-white">
-          <div className="w-full max-w-screen-lg px-4">
+          <div className="w-full max-w-screen-lg px-4 sm:px-6 lg:px-8">
             <ChatPreview />
           </div>
         </section>
-        <section>
+        <section className="bg-gray-50">
           <Hero />
         </section>
       </main>
