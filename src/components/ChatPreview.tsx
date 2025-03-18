@@ -251,6 +251,22 @@ export default function ChatPreview(): JSX.Element {
             </div>
           )}
           <div className="flex flex-col space-y-4">
+            {/* Show typing indicator when isTyping is true */}
+            {isTyping && (
+              <div className="flex justify-start mb-4">
+                <div className="bg-white text-gray-800 rounded-2xl rounded-tl-none shadow-sm px-4 py-3 max-w-[85%]">
+                  <div className="flex flex-col">
+                    <span className="text-xs mb-1 text-gray-500">AI Assistant</span>
+                    <span className="flex space-x-1">
+                      <span className="animate-bounce">.</span>
+                      <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>.</span>
+                      <span className="animate-bounce" style={{ animationDelay: '0.4s' }}>.</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             {getCurrentPartMessages().map((message) => (
               <div key={message.id} className="mb-4">
                 <div className="flex flex-col w-full">
